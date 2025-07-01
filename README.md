@@ -1,4 +1,4 @@
-#  NERF-BASED3DPRODUCTRENDERINGSYSTEM
+#  NERF-BASED 3D PRODUCT RENDERING SYSTEM
 
 **An AI-powered web platform for automatically generating high-quality interactive 3D product renders from user-uploaded videos.**
 
