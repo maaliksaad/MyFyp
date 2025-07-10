@@ -39,20 +39,20 @@ Key goals:
 | Layer            | Technologies                                           |
 | ---------------- | ------------------------------------------------------ |
 | **Frontend**     | RemixJS, TailwindCSS, Playwright (testing)             |
-| **Backend**      | NestJS (GraphQL, REST), PostgreSQL, Sequelize          |
+| **Backend**      | NestJS (GraphQL, REST), MySQL                          |
 | **Uploads**      | TUS Protocol server, Amazon S3                         |
-| **AI Rendering** | Nerf Frameworks via RunPod API                      |
+| **AI Rendering** | Nerf Frameworks via RunPod API                         |
 
 ---
 
 ## 🛠️ How It Works (High Level)
 
-1️⃣ User uploads a video via TUS (resumable).
-2️⃣ File is saved to S3 and registered in the backend.
-3️⃣ User creates a **Project** with a thumbnail.
-4️⃣ User attaches a **Scan** (video) to the project.
-5️⃣ Backend triggers AI-based **NeRF** render.
-6️⃣ Rendered 3D output is stored and shown to the user.
+*1️⃣ User uploads a video via TUS (resumable).
+*2️⃣ File is saved to S3 and registered in the backend.
+*3️⃣ User creates a **Project** with a thumbnail.
+*4️⃣ User attaches a **Scan** (video) to the project.
+*5️⃣ Backend triggers AI-based **NeRF** render.
+(6️⃣ Rendered 3D output is stored and shown to the user.
 
 ---
 
@@ -63,8 +63,8 @@ This project is **private** and the source code is **not publicly available** in
 
 However:
 
-✅ I am **happy to share** code samples or give a live code walk-through.
-✅ If you’re a **recruiter** or **hiring manager** and would like to review the code:
+*✅ I am **happy to share** code samples or give a live code walk-through.
+*✅ If you’re a **recruiter** or **hiring manager** and would like to review the code:
 
 📧 **Please email me at:** \[[saadaxis51@gmail.com](mailto:saadaxis51@gmail.com)]
 *I’ll be glad to provide access upon request.*
