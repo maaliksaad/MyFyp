@@ -4,6 +4,12 @@
 
 ---
 
+## 🎥 Watch Demo
+
+[![Watch the demo](https://img.youtube.com/vi/dhZ-nAk4e90/maxresdefault.jpg)](https://www.youtube.com/watch?v=dhZ-nAk4e90)
+
+Click the image above to watch the full demo on YouTube.
+
 ## 🚀 Overview
 
 This project is my **Final Year Project** designed to make **professional-quality intercative 3D renders accessible and easy**. Instead of relying on expensive manual 3D modeling, users simply **upload a video**, and the system generates a **realistic interactive 3D render** automatically.
