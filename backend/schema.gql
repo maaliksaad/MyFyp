@@ -1,0 +1,199 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+"""Activity"""
+type Activity {
+  activity_id: Int!
+  entity: Entity!
+  type: String!
+  metadata: JSONObject!
+  created_at: DateTime!
+}
+
+enum Entity {
+  scan
+  project
+}
+
+"""
+The `JSONObject` scalar type represents JSON objects as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSONObject
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+"""File"""
+type File {
+  file_id: Int!
+  name: String!
+  key: String!
+  bucket: String!
+  url: String!
+  type: String!
+  mimetype: String!
+  thumbnail: String!
+  created_at: DateTime!
+}
+
+"""Notification"""
+type Notification {
+  notification_id: Int!
+  title: String!
+  type: String!
+  read: Boolean!
+  metadata: JSONObject!
+  created_at: DateTime!
+}
+
+type PasswordReset {
+  password_reset_id: Int!
+}
+
+type Project {
+  project_id: Int!
+  name: String!
+  slug: String!
+  created_at: DateTime!
+  thumbnail: File!
+  user: User!
+  scans: [Scan!]!
+}
+
+type Scan {
+  scan_id: Int!
+  name: String!
+  slug: String!
+  status: ScanStatus!
+  created_at: DateTime!
+  input_file: File!
+  user: User!
+  splat_file: File
+}
+
+enum ScanStatus {
+  Failed
+  Completed
+  Preparing
+}
+
+"""User"""
+type User {
+  user_id: Int!
+  name: String!
+  email: String!
+  picture: String!
+  verified: Boolean!
+  created_at: DateTime!
+}
+
+"""UserWithToken"""
+type UserWithToken {
+  user_id: Int!
+  name: String!
+  email: String!
+  picture: String!
+  verified: Boolean!
+  created_at: DateTime!
+  token: String!
+}
+
+type Verification {
+  verification_id: Int!
+}
+
+type Query {
+  activities(project_slug: String, scan_slug: String): [Activity!]!
+  verify_token: User!
+  notifications: [Notification!]!
+  projects(sort_by: SortBy, sort: Sort, limit: Int): [Project!]!
+  project(id: Int, slug: String): Project!
+  scans: [Scan!]!
+  scan(id: Int, slug: String): Scan!
+  public_scan(id: Int, slug: String): Scan!
+}
+
+enum SortBy {
+  name
+  created_at
+}
+
+enum Sort {
+  ascending
+  descending
+}
+
+type Mutation {
+  signup(data: SignupInput!): Verification!
+  login(data: LoginInput!): UserWithToken!
+  verify_account(data: VerifyAccountInput!): UserWithToken!
+  forgot_password(data: ForgotPasswordInput!): PasswordReset!
+  reset_password(data: ResetPasswordInput!): PasswordReset!
+  update_account(data: UpdateUserInput!): User!
+  update_password(data: UpdatePasswordInput!): User!
+  read_notifications: [Notification!]!
+  create_project(data: CreateProjectInput!): Project!
+  update_project(id: Int!, data: UpdateProjectInput!): Project!
+  delete_project(id: Int!): Project!
+  create_scan(data: CreateScanInput!): Scan!
+  update_scan(id: Int!, data: UpdateScanInput!): Scan!
+  delete_scan(id: Int!): Scan!
+}
+
+input SignupInput {
+  name: String!
+  email: String!
+  password: String!
+}
+
+input LoginInput {
+  email: String!
+  password: String!
+}
+
+input VerifyAccountInput {
+  id: Int!
+  token: String!
+}
+
+input ForgotPasswordInput {
+  email: String!
+}
+
+input ResetPasswordInput {
+  id: Int!
+  token: String!
+  password: String!
+}
+
+input UpdateUserInput {
+  name: String
+  picture: String
+}
+
+input UpdatePasswordInput {
+  current_password: String!
+  new_password: String!
+}
+
+input CreateProjectInput {
+  name: String!
+  thumbnail_id: Int!
+}
+
+input UpdateProjectInput {
+  name: String
+}
+
+input CreateScanInput {
+  name: String!
+  input_file_id: Int!
+  project_id: Int!
+}
+
+input UpdateScanInput {
+  name: String
+}

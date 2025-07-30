@@ -1,0 +1,12 @@
+node_modules
+
+/.cache
+/build
+/public/build
+.env
+.idea
+coverage
+
+playwright-report
+test-results
+/files

@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: 'Inter', sans-serif;
+  box-sizing: border-box;
+  font-optical-sizing: auto;
+  font-variation-settings: "slnt" 0;
+}
